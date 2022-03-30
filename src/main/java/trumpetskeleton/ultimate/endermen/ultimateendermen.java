@@ -21,7 +21,7 @@ public class ultimateendermen implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("ultender");
 	public static final EntityType<CubeEntity> CUBE = Registry.register(
 			Registry.ENTITY_TYPE,
-			new Identifier("ultender", "cube"),
+			new Identifier("ultimateendermen", "cube"),
 			FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CubeEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
 	);
 
@@ -31,7 +31,7 @@ public class ultimateendermen implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		LOGGER.info("Hello Fabric world!");
-		FabricDefaultAttributeRegistry.register(CUBE, CubeEntity.createCubeAttributes());
+		FabricDefaultAttributeRegistry.register(CUBE, CubeEntity.createMobAttributes());
 
 
 	}

@@ -12,7 +12,10 @@ public class UltEnderClient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_CUBE_LAYER = new EntityModelLayer(new Identifier("ultender", "cube"), "main");
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.register(ultimateendermen.CUBE, CubeEntityRenderer::new);
+        EntityRendererRegistry.register(ultimateendermen.CUBE, (context) -> {
+            return new CubeEntityRenderer(context);
+        });
+
 
         EntityModelLayerRegistry.registerModelLayer(MODEL_CUBE_LAYER, CubeEntityModel::getTexturedModelData);
     }
