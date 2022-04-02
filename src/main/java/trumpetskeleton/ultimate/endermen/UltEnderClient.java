@@ -10,14 +10,16 @@ import static trumpetskeleton.ultimate.endermen.ultimateendermen.LOGGER;
 
 public class UltEnderClient implements ClientModInitializer {
     public static final EntityModelLayer MODEL_CUBE_LAYER = new EntityModelLayer(new Identifier("ultender", "cube"), "main");
+    public static final EntityModelLayer MODEL_ENDERSENT_LAYER = new EntityModelLayer(new Identifier("ultender", "endersent"), "main");
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.register(ultimateendermen.CUBE, (context) -> {
-            return new CubeEntityRenderer(context);
-        });
+        LOGGER.info("=====================");
+        EntityRendererRegistry.register(ultimateendermen.CUBE, CubeEntityRenderer::new);
+        EntityRendererRegistry.register(ultimateendermen.ENDERSENT, EndersentEntityRenderer::new);
 
 
         EntityModelLayerRegistry.registerModelLayer(MODEL_CUBE_LAYER, CubeEntityModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_ENDERSENT_LAYER, EndersentModel::getTexturedModelData);
     }
 
 }

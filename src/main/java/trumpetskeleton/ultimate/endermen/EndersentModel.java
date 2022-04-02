@@ -7,12 +7,11 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.EntityModels;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 
-public class endersent<T extends Entity> extends EntityModel<T> {
+public class EndersentModel extends EntityModel<EndersentEntity> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 	public static final EntityModelLayer LAYER_LOCATION = new EntityModelLayer(new Identifier("ultender", "endersent"), "main");
 	private final ModelPart body;
@@ -23,7 +22,7 @@ public class endersent<T extends Entity> extends EntityModel<T> {
 	private final ModelPart left_leg;
 	private final ModelPart leftarm;
 
-	public endersent(ModelPart root) {
+	public EndersentModel(ModelPart root) {
 		this.body = root.getChild("body");
 		this.head = root.getChild("head");
 		this.headwear = root.getChild("headwear");
@@ -33,7 +32,7 @@ public class endersent<T extends Entity> extends EntityModel<T> {
 		this.leftarm = root.getChild("leftarm");
 	}
 
-	public static TexturedModelData createBodyLayer() {
+	public static TexturedModelData getTexturedModelData() {
 		ModelData meshdefinition = new ModelData();
 		ModelPartData partdefinition = meshdefinition.getRoot();
 
@@ -67,7 +66,7 @@ public class endersent<T extends Entity> extends EntityModel<T> {
 
 
 	@Override
-	public void setAngles(T entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+	public void setAngles(EndersentEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 
 	}
 
